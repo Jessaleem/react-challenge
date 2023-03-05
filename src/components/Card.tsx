@@ -15,7 +15,7 @@ export default function Card({ name, status, species, image }: CharacterProps) {
       <div className='pl-3 py-3'>
         <div>Name: {name} </div>
         <div>Status: {status}</div>
-        <div>Species:{species}</div>
+        <div>Species: {species}</div>
       </div>
     </div>
   );

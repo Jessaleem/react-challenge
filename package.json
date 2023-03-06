@@ -12,7 +12,9 @@
     "format": "prettier --write src/**/*.{ts,tsx,json} --config ./.prettierrc"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.9",
     "@heroicons/react": "^2.0.16",
+    "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2"

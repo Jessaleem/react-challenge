@@ -1,22 +1,25 @@
-import { InfoProps } from '../pages/Home';
 import { BackwardIcon, ForwardIcon } from '@heroicons/react/24/solid';
 
-export default function Footer({ info }: { info: InfoProps }) {
-  let currentPage = info.next - 1;
-  console.log(currentPage);
+interface FooterProps {
+  next: number | null;
+  prev: number | null;
+  current: number;
+}
+
+export default function Footer({ next, prev, current }: FooterProps) {
   return (
     <footer className='flex bg-black gap-10 text-teal-500 items-center justify-center font-bold'>
-      {info.prev != null ? (
-        <button className='pl-4'>
-          <BackwardIcon />
+      {prev != null ? (
+        <button className='pl-4 fill-teal-500'>
+          <BackwardIcon className='w-4' />
         </button>
       ) : (
         <div className='pl-4'>
           <BackwardIcon className='w-4 fill-gray-500' />
         </div>
       )}
-      <div>{currentPage}</div>
-      {info.next != null ? (
+      <div>{current}</div>
+      {next != null ? (
         <button className='pl-4 fill-teal-500'>
           <ForwardIcon className='w-4' />
         </button>

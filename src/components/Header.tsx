@@ -1,16 +1,20 @@
 import logo from '../assets/rick_morty_name.png';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
   return (
     <>
       <header className='w-full bg-black'>
         <nav className='hidden sm:flex mx-auto max-w-4xl justify-between items-center px-4 py-2'>
           <img src={logo} alt='logo-name' className='w-40' />
           <ul className='flex flex-1 justify-center gap-8 items-center font-bold'>
-            <li className='hover:underline cursor-pointer'>Home</li>
+            <li className='hover:underline cursor-pointer'>
+              <Link to='/'>Home</Link>
+            </li>
             <li className='hover:underline cursor-pointer'>Location</li>
             <li className='hover:underline cursor-pointer'>Episodes</li>
           </ul>
@@ -35,7 +39,13 @@ export default function Header() {
             </button>
           </div>
           <div className='flex flex-col justify-center gap-6 font-bold rounded mx-4 my-20'>
-            <button className='hover:underline cursor-pointer bg-neutral-800 rounded'>
+            <button
+              onClick={() => {
+                setShowMenu((prev) => !prev);
+                navigate('/');
+              }}
+              className='hover:underline cursor-pointer bg-neutral-800 rounded'
+            >
               Home
             </button>
             <button className='hover:underline cursor-pointer bg-neutral-800 rounded'>

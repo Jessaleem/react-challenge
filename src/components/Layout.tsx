@@ -7,7 +7,7 @@ export default function Layout() {
     <>
       <Header />
       <Outlet />
-      <Footer next={2} prev={null} current={1} />
+      <Footer />
     </>
   );
 }

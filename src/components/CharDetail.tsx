@@ -18,7 +18,6 @@ function getSingleCharacter(id: number) {
 export default function CharDetail() {
   const { id } = useParams();
   const { data, loading, error } = useQuery(getSingleCharacter(+id!));
-  console.log(data.character);
 
   if (loading) {
     return <p>Loaging...</p>;

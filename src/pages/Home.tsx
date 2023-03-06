@@ -1,30 +1,34 @@
 import { useQuery, gql } from '@apollo/client';
-import Header from '../components/Header';
+import { useState } from 'react';
 import Card from '../components/Card';
-import Footer from '../components/Footer';
+import Pagination from '../components/Pagination';
 import { Character } from '../types';
 
-const getAllCharacters = gql`
-  query {
-    characters {
-      results {
-        id
-        name
-        status
-        species
-        image
-      }
-      info {
-        pages
-        next
-        prev
+function getAllCharacters({ page }: { page: number }) {
+  return gql`
+    query {
+      characters (page:${page}) {
+        results {
+          id
+          name
+          status
+          species
+          image
+        }
+        info {
+          pages
+          next
+          prev
+        }
       }
     }
-  }
-`;
+  `;
+}
 
 export default function Home() {
-  const { data, loading, error } = useQuery(getAllCharacters);
+  const [page, setPage] = useState(1);
+
+  const { data, loading, error } = useQuery(getAllCharacters({ page }));
 
   if (loading) {
     return <p>Loading...</p>;
@@ -36,9 +40,27 @@ export default function Home() {
   const characters = data.characters.results as Character[];
   let character = characters.map((char) => <Card key={char.id} {...char} />);
 
+  const { next, prev } = data.characters.info;
+
+  function increment() {
+    setPage((prev) => prev + 1);
+  }
+  function decrement() {
+    setPage((prev) => prev - 1);
+  }
+
   return (
-    <main className='flex flex-wrap gap-5 bg-neutral-800 justify-center py-4'>
-      {character}
-    </main>
+    <div className='mb-10'>
+      <main className='flex flex-wrap gap-5 bg-neutral-800 justify-center py-4'>
+        {character}
+      </main>
+      <Pagination
+        next={next}
+        current={page}
+        prev={prev}
+        increment={increment}
+        decrement={decrement}
+      />
+    </div>
   );
 }

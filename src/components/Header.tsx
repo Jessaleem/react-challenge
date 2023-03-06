@@ -15,8 +15,12 @@ export default function Header() {
             <li className='hover:underline cursor-pointer'>
               <Link to='/'>Home</Link>
             </li>
-            <li className='hover:underline cursor-pointer'>Location</li>
-            <li className='hover:underline cursor-pointer'>Episodes</li>
+            <li className='hover:underline cursor-pointer'>
+              <Link to='/locations'> Location</Link>
+            </li>
+            <li className='hover:underline cursor-pointer'>
+              <Link to='/episodes'>Episodes</Link>
+            </li>
           </ul>
           <button className='text-white bg-teal-500 py-2 px-4 rounded-lg font-bold'>
             Login
@@ -31,7 +35,7 @@ export default function Header() {
       </header>
 
       {showMenu && (
-        <div className='w-full h-full bg-black absolute top-0'>
+        <div className='w-full h-full bg-black fixed top-0 z-20'>
           <div className='sm:hidden flex justify-between items-center px-4 py-2'>
             <img src={logo} alt='logo-name' className='w-40' />
             <button onClick={() => setShowMenu((prev) => !prev)}>

@@ -31,7 +31,7 @@ export default function Home() {
   const { data, loading, error } = useQuery(getAllCharacters({ page }));
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className='text-center font-bold text-4xl mt-40'>Loading...</p>;
   }
   if (error) {
     return <p>Something has ocurred</p>;

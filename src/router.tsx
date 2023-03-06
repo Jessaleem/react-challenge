@@ -3,6 +3,8 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import Home from './pages/Home';
 import CharDetail from './components/CharDetail';
 import Layout from './components/Layout';
+import Episodes from './pages/Episodes';
+import Locations from './pages/Locations';
 
 const client = new ApolloClient({
   uri: 'https://rickandmortyapi.com/graphql',
@@ -23,6 +25,14 @@ export const router = createBrowserRouter([
           {
             path: '/character/:id',
             element: <CharDetail />,
+          },
+          {
+            path: '/episodes',
+            element: <Episodes />,
+          },
+          {
+            path: '/locations',
+            element: <Locations />,
           },
         ],
       },

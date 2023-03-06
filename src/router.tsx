@@ -5,6 +5,8 @@ import CharDetail from './components/CharDetail';
 import Layout from './components/Layout';
 import Episodes from './pages/Episodes';
 import Locations from './pages/Locations';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 const client = new ApolloClient({
   uri: 'https://rickandmortyapi.com/graphql',
@@ -33,6 +35,14 @@ export const router = createBrowserRouter([
           {
             path: '/locations',
             element: <Locations />,
+          },
+          {
+            path: '/signup',
+            element: <SignUp />,
+          },
+          {
+            path: '/login',
+            element: <Login />,
           },
         ],
       },

@@ -22,9 +22,12 @@ export default function Header() {
               <Link to='/episodes'>Episodes</Link>
             </li>
           </ul>
-          <button className='text-white bg-teal-500 py-2 px-4 rounded-lg font-bold'>
+          <Link
+            to='/login'
+            className='text-white bg-teal-500 py-2 px-4 rounded-lg font-bold'
+          >
             Login
-          </button>
+          </Link>
         </nav>
         <div className='sm:hidden flex justify-between items-center px-4 py-2'>
           <img src={logo} alt='logo-name' className='w-40' />

@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
+import { Origin } from '../types';
+import { Character } from '../types';
 
-type CharacterProps = {
-  id: string;
-  name: string;
-  status: string;
-  species: string;
-  image: string;
-};
+// type CharacterProps = {
+//   id: string;
+//   name: string;
+//   status: string;
+//   species: string;
+//   image: string;
+//   origin: Origin[];
+// };
 
 export default function Card({
   id,
@@ -14,7 +17,8 @@ export default function Card({
   status,
   species,
   image,
-}: CharacterProps) {
+  origin,
+}: Character) {
   console.log(origin);
   return (
     <Link
@@ -27,7 +31,7 @@ export default function Card({
           <div className='font-bold text-xl hover:text-teal-500'>{name} </div>
           <div>Status: {status}</div>
           <div>Species: {species}</div>
-          <div>Origin: </div>
+          <div>Origin: {origin.name} </div>
         </div>
       </div>
     </Link>

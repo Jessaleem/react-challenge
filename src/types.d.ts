@@ -4,7 +4,7 @@ export type Character = {
   status: string;
   species: string;
   image: string;
-  origin: Array<string>;
+  origin: Origin;
 };
 
 export type Episode = {
@@ -20,6 +20,10 @@ export type Location = {
   name: string;
   type: string;
   residents: Resident[];
+};
+
+export type Origin = {
+  name: string;
 };
 
 type Resident = {

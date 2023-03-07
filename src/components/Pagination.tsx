@@ -15,7 +15,6 @@ export default function Pagination({
   increment,
   decrement,
 }: FooterProps) {
-  console.log(prev);
   return (
     <div className='flex bg-black gap-10 items-center justify-center font-bold'>
       <button

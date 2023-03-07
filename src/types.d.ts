@@ -4,6 +4,7 @@ export type Character = {
   status: string;
   species: string;
   image: string;
+  origin: Array<string>;
 };
 
 export type Episode = {

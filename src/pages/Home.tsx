@@ -14,6 +14,9 @@ function getAllCharacters({ page }: { page: number }) {
           status
           species
           image
+          origin {
+            name
+          }
         }
         info {
           pages

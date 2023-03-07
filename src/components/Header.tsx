@@ -10,7 +10,9 @@ export default function Header() {
     <>
       <header className='w-full bg-black'>
         <nav className='hidden sm:flex mx-auto max-w-4xl justify-between items-center px-4 py-2'>
-          <img src={logo} alt='logo-name' className='w-40' />
+          <Link to='/'>
+            <img src={logo} alt='logo-name' className='w-40' />
+          </Link>
           <ul className='flex flex-1 justify-center gap-8 items-center font-bold'>
             <li className='hover:underline cursor-pointer'>
               <Link to='/'>Home</Link>

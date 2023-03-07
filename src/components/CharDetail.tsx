@@ -20,7 +20,7 @@ export default function CharDetail() {
   const { data, loading, error } = useQuery(getSingleCharacter(+id!));
 
   if (loading) {
-    return <p>Loaging...</p>;
+    return <p className='text-center font-bold text-4xl mt-40'>Loaging...</p>;
   }
 
   if (error) {
